@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #stt{
+            position: fixed;
+            left: 60%;
+        }
+
+        #container{
+            position: absolute;
+            left: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="stt">Scroll to top</button>
+    </div>
+   
+</body>
+</html>
+
+<script>
+
+    document.getElementById("stt").onclick = () => {
+        window.scrollTo(0,0);
+    }
+
+var container = document.getElementById("container");
+var j = 0;
+function loadText(numText = 21){
+    var i = 0;
+    
+  
+    while(i < numText)
+    {
+        const text = document.createElement("p");
+        text.innerText = `Masai Student` + " " +` ${j}`;
+        container.append(text);
+        i++;
+        j++;
+    }
+}
+
+loadText();
+
+window.addEventListener("scroll", () => {
+    if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight)
+    {
+        j = j + 21;
+        loadText();
+    }
+})
+
+
+</script>
